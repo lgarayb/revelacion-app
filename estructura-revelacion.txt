@@ -1,0 +1,167 @@
+PROYECTO: revelacion-app
+FECHA: 2026-11-25T05:46:51.967Z
+
+=== PACKAGE.JSON (SCRIPTS & DEPS) ===
+Scripts: {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint"
+}
+Dependencies: {
+  "@sendinblue/client": "^3.3.1",
+  "cloudinary": "^2.11.0",
+  "googleapis": "^178.0.0",
+  "groq-sdk": "^1.6.0",
+  "lucide-react": "^1.79.0",
+  "mercadopago": "^3.6.2",
+  "mongoose": "^8.24.11",
+  "next": "16.4.6",
+  "next-auth": "^4.24.15",
+  "react": "19.3.0",
+  "react-dom": "19.3.0",
+  "react-hook-form": "^7.92.0",
+  "react-hot-toast": "^2.6.1",
+  "stripe": "^23.2.0"
+}
+DevDependencies: {
+  "@tailwindcss/turbopack": "4.3.3",
+  "@types/mongoose": "^5.11.96",
+  "@types/node": "^20",
+  "@types/react": "^19",
+  "@types/react-dom": "^19",
+  "eslint": "^9",
+  "eslint-config-next": "16.4.6",
+  "tailwindcss": "4.3.3",
+  "typescript": "^5"
+}
+
+=== ÁRBOL DE CARPETAS Y ARCHIVOS ===
+├── public/
+│   ├── file.svg (391 B)
+│   ├── globe.svg (1035 B)
+│   ├── next.svg (1375 B)
+│   ├── vercel.svg (128 B)
+│   └── window.svg (385 B)
+├── src/
+│   ├── app/
+│   │   ├── (admin)/
+│   │   │   ├── admin/
+│   │   │   │   ├── agente-ia/
+│   │   │   │   │   └── page.tsx (116 B)
+│   │   │   │   ├── calendario/
+│   │   │   │   │   └── page.tsx (116 B)
+│   │   │   │   ├── inventario/
+│   │   │   │   │   └── page.tsx (116 B)
+│   │   │   │   ├── live/
+│   │   │   │   │   └── page.tsx (116 B)
+│   │   │   │   ├── paquetes/
+│   │   │   │   │   ├── nuevo/
+│   │   │   │   │   │   └── page.tsx (6044 B)
+│   │   │   │   │   └── page.tsx (116 B)
+│   │   │   │   └── page.tsx (4359 B)
+│   │   │   └── layout.tsx (3416 B)
+│   │   ├── (client)/
+│   │   │   ├── legal/
+│   │   │   │   └── page.tsx (116 B)
+│   │   │   ├── paquetes/
+│   │   │   │   ├── [slug]/
+│   │   │   │   │   └── page.tsx (116 B)
+│   │   │   │   └── page.tsx (3327 B)
+│   │   │   ├── reservar/
+│   │   │   │   └── [packageId]/
+│   │   │   │       ├── addons/
+│   │   │   │       │   └── page.tsx (116 B)
+│   │   │   │       ├── firma/
+│   │   │   │       │   └── page.tsx (116 B)
+│   │   │   │       ├── pago/
+│   │   │   │       │   └── page.tsx (4484 B)
+│   │   │   │       └── page.tsx (5486 B)
+│   │   │   ├── secreto/
+│   │   │   │   └── [token]/
+│   │   │   │       └── page.tsx (4338 B)
+│   │   │   ├── success/
+│   │   │   │   └── page.tsx (2266 B)
+│   │   │   ├── layout.tsx (2209 B)
+│   │   │   └── page.tsx (4210 B)
+│   │   ├── (cuadrilla)/
+│   │   │   └── cuadrilla/
+│   │   │       └── [eventoId]/
+│   │   │           └── page.tsx (4426 B)
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   │   └── [...nextauth]/
+│   │   │   │       └── route.ts (1056 B)
+│   │   │   ├── bookings/
+│   │   │   │   └── route.ts (1308 B)
+│   │   │   ├── cloudinary/
+│   │   │   │   └── sign/
+│   │   │   │       └── route.ts (743 B)
+│   │   │   ├── email/
+│   │   │   │   └── route.ts (116 B)
+│   │   │   ├── groq/
+│   │   │   │   └── chat/
+│   │   │   │       └── route.ts (117 B)
+│   │   │   ├── mercadopago/
+│   │   │   │   ├── create-preference/
+│   │   │   │   │   └── route.ts (1880 B)
+│   │   │   │   └── webhook/
+│   │   │   │       └── route.ts (1837 B)
+│   │   │   ├── paquetes/
+│   │   │   │   └── route.ts (1311 B)
+│   │   │   ├── secreto/
+│   │   │   │   └── resolve/
+│   │   │   │       └── route.ts (117 B)
+│   │   │   ├── stripe/
+│   │   │   │   ├── create-intent/
+│   │   │   │   │   └── route.ts (1238 B)
+│   │   │   │   └── webhook/
+│   │   │   │       └── route.ts (1788 B)
+│   │   │   └── whatsapp/
+│   │   │       └── webhook/
+│   │   │           └── route.ts (2198 B)
+│   │   ├── favicon.ico (15086 B)
+│   │   ├── globals.css (58 B)
+│   │   ├── layout.tsx (981 B)
+│   │   └── page.tsx (4282 B)
+│   ├── components/
+│   │   ├── admin/
+│   │   ├── client/
+│   │   ├── forms/
+│   │   ├── layout/
+│   │   ├── seo/
+│   │   │   └── Analytics.tsx (0 B)
+│   │   └── ui/
+│   ├── lib/
+│   │   ├── brevo.ts (1168 B)
+│   │   ├── cloudinary.ts (0 B)
+│   │   ├── evolution.ts (0 B)
+│   │   ├── gcal.ts (1445 B)
+│   │   ├── groq.ts (1394 B)
+│   │   ├── mercadopago.ts (0 B)
+│   │   ├── mongodb.ts (427 B)
+│   │   ├── stripe.ts (0 B)
+│   │   └── utils.ts (0 B)
+│   ├── models/
+│   │   ├── Asset.ts (0 B)
+│   │   ├── Booking.ts (325 B)
+│   │   ├── Contract.ts (0 B)
+│   │   ├── Package.ts (264 B)
+│   │   └── Secret.ts (0 B)
+│   ├── types/
+│   │   ├── index.d.ts (0 B)
+│   │   └── next-auth.d.ts (0 B)
+│   └── proxy.ts (702 B)
+├── .env.local (0 B)
+├── .gitignore (480 B)
+├── AGENTS.md (679 B)
+├── eslint.config.mjs (465 B)
+├── gen-estructura.mjs (2027 B)
+├── next-env.d.ts (288 B)
+├── next.config.ts (328 B)
+├── package-lock.json (300152 B)
+├── package.json (909 B)
+├── README.md (1450 B)
+├── sentry.client.config.ts (0 B)
+├── sentry.server.config.ts (0 B)
+└── tsconfig.json (670 B)

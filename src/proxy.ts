@@ -7,7 +7,16 @@ const auth = withAuth(
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token,
+      authorized: ({ token }) => {
+        if (!token) return false;
+
+        const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+        if (adminEmail) {
+          return token.email?.toLowerCase() === adminEmail;
+        }
+
+        return true;
+      },
     },
   }
 );
@@ -19,6 +28,6 @@ export default function proxy(req: NextRequest) {
 export const config = {
   matcher: [
     "/admin/:path*",
-    "/cuadrilla/:path*"
+    "/cuadrilla/:path*",
   ],
 };
