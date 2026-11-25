@@ -1,10 +1,7 @@
 import Link from 'next/link';
-import { Sparkles, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import dbConnect from '@/lib/mongodb';
 import Package from '@/models/Package';
-
-// Forzamos renderizado dinámico para traer la BD en tiempo real
-export const dynamic = 'force-dynamic';
 
 export default async function CatalogoPaquetesPage() {
   await dbConnect();
