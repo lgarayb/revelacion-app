@@ -1,6 +1,8 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
+
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
@@ -8,27 +10,26 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     }),
   ],
-  pages: {
-    signIn: '/api/auth/signin', // Página por defecto de NextAuth o la tuya personalizada
-  },
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 días
   },
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
-      if (user) {
-        token.role = user.email === "tu_correo_admin@gmail.com" ? "ADMIN" : "USER";
+      if (user?.email) {
+        const normalizedEmail = user.email.trim().toLowerCase();
+        token.role = adminEmail && normalizedEmail === adminEmail ? "ADMIN" : "USER";
       }
       return token;
     },
     async session({ session, token }) {
       if (session?.user) {
-        (session.user as any).role = token.role;
+        (session.user as any).role = token.role || "USER";
       }
       return session;
-    }
-  }
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);
